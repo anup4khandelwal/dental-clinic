@@ -1,0 +1,17 @@
+export const clinicGallery = [
+  "IMG_7413.JPG.jpeg",
+  "IMG_7414.JPG.jpeg",
+  "IMG_7415.JPG.jpeg",
+  "IMG_7416.JPG.jpeg",
+  "IMG_7417.JPG.jpeg",
+  "IMG_7418.JPG.jpeg",
+  "IMG_7419.JPG.jpeg",
+  "IMG_7420.JPG.jpeg",
+  "IMG_7421.JPG.jpeg",
+  "IMG_7422.JPG.jpeg",
+  "IMG_7423.JPG.jpeg",
+  "IMG_7424.JPG.jpeg",
+  "IMG_7425.JPG.jpeg",
+  "IMG_7426.JPG.jpeg",
+  "IMG_7427.JPG.jpeg",
+];
