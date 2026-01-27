@@ -97,6 +97,14 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <CTAButton />
+              <a
+                href={clinic.bookingUrl}
+                className="inline-flex items-center justify-center rounded-full border border-[color:var(--brand-mist)] bg-white px-6 py-3 text-sm font-semibold text-[color:var(--brand-blue)] shadow-sm transition hover:border-[color:var(--brand-blue)]"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Book Online
+              </a>
               <Link
                 href="/services"
                 className="text-sm font-semibold text-slate-700 hover:text-[color:var(--brand-blue)]"
@@ -104,25 +112,56 @@ export default function HomePage() {
                 Explore services →
               </Link>
             </div>
-            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3">
+            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-2">
               <StatCard value="10+" label="Years of combined experience" />
               <StatCard value="2k+" label="Happy smiles" />
-              <StatCard value="4.9" label="Average rating" />
             </div>
           </div>
           <div className="relative">
             <div className="absolute -right-6 top-6 h-full w-full rounded-[36px] bg-[color:var(--brand-mist)]/70" />
             <div className="relative overflow-hidden rounded-[36px] border border-[color:var(--brand-mist)] bg-white shadow-xl">
-              <Image
-                src="/images/hero.jpeg"
-                alt="Dental Stories clinic hero"
-                width={900}
-                height={1100}
+              <video
                 className="h-full w-full object-cover"
-                priority
+                controls
+                preload="metadata"
+                playsInline
+                aria-label="Dental Stories clinic tour video"
+                src="/videos/clinic_tour.mp4"
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+        <SectionHeading
+          eyebrow="Why Dental Stories"
+          title="Precision, comfort, and care—every visit"
+          description="Inspired by your clinic tour, we keep the experience calm and informative from the waiting lounge to the consultation room."
+        />
+        <div className="mt-8 grid gap-6 md:grid-cols-4">
+          <HighlightCard
+            title="Calm waiting lounge"
+            description="Soft lighting and peaceful ambience so you can relax."
+          />
+          <HighlightCard
+            title="Consultation focused"
+            description="We listen first and explain every step clearly."
+          />
+          <HighlightCard
+            title="Clinical precision"
+            description="Digital diagnostics for accurate, efficient care."
+          />
+          <HighlightCard
+            title="Comfortable care"
+            description="Gentle techniques for anxious and first‑time patients."
+          />
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+          <StatCard value="10+" label="Years of combined experience" />
+          <StatCard value="2k+" label="Happy smiles" />
+          <StatCard value="4.9" label="Average rating" />
+          <StatCard value="Same-day" label="Emergency slots" />
         </div>
       </section>
 
@@ -154,20 +193,20 @@ export default function HomePage() {
             />
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <HighlightCard
-                title="Calm waiting lounge"
-                description="Soft lighting and peaceful ambience to help you relax."
-              />
-              <HighlightCard
-                title="Consultation first"
-                description="Open conversations with clarity, precision, and care."
-              />
-              <HighlightCard
                 title="Digital diagnostics"
                 description="High-precision scans reduce surprises and improve accuracy."
               />
               <HighlightCard
                 title="Gentle care"
                 description="Comfort-focused techniques for anxious patients."
+              />
+              <HighlightCard
+                title="Transparent plans"
+                description="Clear treatment milestones and pricing you can trust."
+              />
+              <HighlightCard
+                title="Friendly team"
+                description="Warm guidance throughout every visit."
               />
             </div>
           </div>
@@ -198,6 +237,37 @@ export default function HomePage() {
 
       <section className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
         <SectionHeading
+          eyebrow="Payments & insurance"
+          title="Flexible options that fit your budget"
+          description="We accept multiple payment methods and offer guidance for insurance reimbursements."
+        />
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="rounded-3xl border border-[color:var(--brand-mist)] bg-white p-6 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">Payment methods</h3>
+            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+              {clinic.payments.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-3xl border border-[color:var(--brand-mist)] bg-white p-6 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">Insurance help</h3>
+            <p className="mt-3 text-sm text-slate-600">
+              We assist with documentation for insurance claims and provide
+              transparent invoices for reimbursement.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-[color:var(--brand-mist)] bg-white p-6 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">Flexible plans</h3>
+            <p className="mt-3 text-sm text-slate-600">
+              Ask about installment plans for larger treatments and smile makeovers.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+        <SectionHeading
           eyebrow="Testimonials"
           title="Patients who love their Dental Stories"
           description="Real feedback from families and professionals who trust our clinic."
@@ -218,6 +288,39 @@ export default function HomePage() {
             name="Sneha P."
             detail="Pediatric care"
           />
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+          <SectionHeading
+            eyebrow="Pricing guide"
+            title="Transparent ranges for common treatments"
+            description="Exact costs depend on your case. We share clear estimates after your consultation."
+          />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: "Cleaning & checkup", price: "₹800 – ₹1,500" },
+              { title: "Root canal", price: "₹4,000 – ₹8,000" },
+              { title: "Crowns", price: "₹6,000 – ₹15,000" },
+              { title: "Whitening", price: "₹5,000 – ₹12,000" },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-3xl border border-[color:var(--brand-mist)] bg-white p-6 shadow-sm"
+              >
+                <h3 className="text-base font-semibold text-slate-900">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xl font-semibold text-[color:var(--brand-blue)]">
+                  {item.price}
+                </p>
+                <p className="mt-2 text-xs text-slate-500">
+                  Final price after examination.
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

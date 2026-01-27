@@ -5,6 +5,8 @@ import { clinic, site } from "@/config/clinic";
 import { CallNowButton } from "@/components/CallNowButton";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { TopBar } from "@/components/TopBar";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -41,10 +43,12 @@ export default function RootLayout({
       <body
         className={`${sora.variable} ${fraunces.variable} antialiased`}
       >
+        <TopBar />
         <Header />
         <main>{children}</main>
         <Footer />
         <CallNowButton />
+        <WhatsAppButton />
       </body>
     </html>
   );

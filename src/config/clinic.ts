@@ -2,6 +2,7 @@ export const clinic = {
   name: "Dental Stories",
   tagline: "Your Smile, Our Story",
   phone: "+91 8390762129",
+  whatsappNumber: "918390762129",
   email: "care@dentalstories.in",
   addressLine1: "Office no 103, Gagan Capital",
   addressLine2: "Dhole Patil Road, Pune 411001",
@@ -15,6 +16,10 @@ export const clinic = {
   },
   hours: "Mon–Sat: 10am–7pm",
   appointmentUrl: "/contact",
+  bookingUrl: "https://cal.com/",
+  emergencyNote:
+    "Same-day emergency slots available. Call or WhatsApp us for urgent care.",
+  payments: ["Cash", "UPI", "Cards", "EMI available on select treatments"],
   social: {
     instagram: "https://instagram.com/",
     facebook: "https://facebook.com/",
