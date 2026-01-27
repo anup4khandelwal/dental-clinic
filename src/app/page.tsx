@@ -434,32 +434,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[color:var(--brand-mist)]/50">
-        <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 py-12 md:py-16 md:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <SectionHeading
-              eyebrow="Clinic tour"
-              title="Take a quick walk through Dental Stories"
-              description="See the calming waiting lounge and the consultation area designed for clear, comfortable conversations."
-            />
-            <p className="mt-4 text-sm text-slate-600">
-              Our clinic combines precision, comfort, and care so you feel at ease
-              from the moment you arrive.
-            </p>
-          </div>
-          <div className="overflow-hidden rounded-[32px] border border-[color:var(--brand-mist)] bg-white shadow-sm">
-            <video
-              className="h-full w-full object-cover"
-              controls
-              preload="metadata"
-              playsInline
-              aria-label="Dental Stories clinic tour video"
-              src="/videos/clinic_tour.mp4"
-            />
-          </div>
-        </div>
-      </section>
-
       <section className="bg-[color:var(--brand-mist)]/70">
         <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 py-12 md:py-16 md:grid-cols-[1.1fr_0.9fr]">
           <div>
