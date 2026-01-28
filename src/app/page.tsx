@@ -77,39 +77,32 @@ export default function HomePage() {
         }}
       />
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-[color:var(--brand-mist)] via-white to-[color:var(--brand-sand)]">
-        <div className="absolute inset-0 opacity-60">
-          <div className="absolute -left-32 top-16 h-64 w-64 rounded-full bg-[color:var(--brand-mist)] blur-3xl" />
-          <div className="absolute right-0 top-10 h-72 w-72 rounded-full bg-emerald-100 blur-3xl" />
-        </div>
-        <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 md:py-20 md:grid-cols-[1.1fr_0.9fr]">
+      <section className="bg-gradient-to-br from-[color:var(--brand-mist)]/70 via-white to-[color:var(--brand-sand)]/70">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 md:py-20 md:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--brand-blue)]">
               {clinic.tagline}
             </p>
             <h1 className="mt-4 text-3xl font-semibold text-slate-900 md:text-5xl">
-              Modern dentistry with a calm, patient-first approach.
+              Dentistry led by experience, warmth, and precision.
             </h1>
             <p className="mt-4 text-base text-slate-600 md:text-lg">
-              {clinic.name} in {clinic.city} blends advanced technology with gentle
-              care. Led by Dr. Nehal Khandelwal, we create healthy smiles you can
-              trust.
+              Meet Dr. Nehal Khandelwal, aesthetic and cosmetic dentist at{" "}
+              {clinic.name}. We focus on gentle care, clear communication, and
+              long-term oral health.
             </p>
+            <ul className="mt-6 space-y-2 text-sm text-slate-600">
+              <li>Cosmetic dentistry & smile design</li>
+              <li>Comfort-focused treatments for anxious patients</li>
+              <li>Personalized treatment planning</li>
+            </ul>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <CTAButton />
-              <a
-                href={clinic.bookingUrl}
-                className="inline-flex items-center justify-center rounded-full border border-[color:var(--brand-mist)] bg-white px-6 py-3 text-sm font-semibold text-[color:var(--brand-blue)] shadow-sm transition hover:border-[color:var(--brand-blue)]"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Book Online
-              </a>
               <Link
-                href="/services"
+                href="/about"
                 className="text-sm font-semibold text-slate-700 hover:text-[color:var(--brand-blue)]"
               >
-                Explore services →
+                Read full profile →
               </Link>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-2">
@@ -120,13 +113,13 @@ export default function HomePage() {
           <div className="relative">
             <div className="absolute -right-6 top-6 h-full w-full rounded-[36px] bg-[color:var(--brand-mist)]/70" />
             <div className="relative overflow-hidden rounded-[36px] border border-[color:var(--brand-mist)] bg-white shadow-xl">
-              <video
+              <Image
+                src="/images/doctor-nehal.png"
+                alt="Dr. Nehal Khandelwal"
+                width={700}
+                height={900}
                 className="h-full w-full object-cover"
-                controls
-                preload="metadata"
-                playsInline
-                aria-label="Dental Stories clinic tour video"
-                src="/videos/clinic_tour.mp4"
+                priority
               />
             </div>
           </div>
@@ -165,6 +158,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+          <SectionHeading
+            eyebrow="Safety & sterilization"
+            title="Medical-grade sterilization you can trust"
+            description="We follow strict protocols to keep every surface, instrument, and operatory safe."
+          />
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <HighlightCard
+              title="Autoclave sterilization"
+              description="All instruments are sterilized in sealed pouches for every patient."
+            />
+            <HighlightCard
+              title="Single-use disposables"
+              description="We use single-use items wherever possible for maximum safety."
+            />
+            <HighlightCard
+              title="Medical-grade disinfection"
+              description="High‑touch areas are disinfected between every appointment."
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
         <SectionHeading
           eyebrow="Services"
@@ -177,9 +194,15 @@ export default function HomePage() {
               key={service.slug}
               title={service.title}
               description={service.description}
-              href={`/services#${service.slug}`}
+              iconKey={service.icon}
+              href={`/services/${service.slug}`}
             />
           ))}
+        </div>
+        <div className="mt-8 rounded-3xl border border-[color:var(--brand-mist)] bg-[color:var(--brand-mist)]/30 p-6 text-sm text-slate-700">
+          <span className="font-semibold text-slate-900">Family-friendly care:</span>{" "}
+          We offer gentle pediatric dentistry and guidance for parents to build
+          lifelong oral hygiene habits.
         </div>
       </section>
 
@@ -277,20 +300,112 @@ export default function HomePage() {
             quote="The clinic is spotless, and the team is incredibly patient. I finally enjoy dental visits."
             name="Aarti M."
             detail="Teeth whitening"
+            rating={5}
           />
           <TestimonialCard
             quote="They fixed my root canal with zero pain and clear aftercare guidance."
             name="Rohan S."
             detail="Root canal therapy"
+            rating={5}
           />
           <TestimonialCard
             quote="My child felt safe and even asked when we can return."
             name="Sneha P."
             detail="Pediatric care"
+            rating={5}
           />
         </div>
       </section>
 
+      <section className="bg-[color:var(--brand-mist)]/50">
+        <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+          <SectionHeading
+            eyebrow="Trust & credentials"
+            title="Certified care, trusted by families"
+            description="Professional standards and a commitment to transparency at every step."
+          />
+          <div className="mt-8 grid gap-6 md:grid-cols-4">
+            {[
+              "ADA-aligned protocols",
+              "Digital X‑ray safety",
+              "Infection control",
+              "Patient-first approach",
+            ].map((label) => (
+              <div
+                key={label}
+                className="rounded-3xl border border-[color:var(--brand-mist)] bg-white p-6 text-sm font-semibold text-slate-700 shadow-sm"
+              >
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+          <SectionHeading
+            eyebrow="Offers"
+            title="New patient welcome offer"
+            description="Ask us about limited‑time packages for consultations and preventive care."
+          />
+          <div className="mt-8 grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
+            <div className="rounded-3xl border border-[color:var(--brand-mist)] bg-[color:var(--brand-mist)]/40 p-8 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900">
+                Complimentary first consultation
+              </h3>
+              <p className="mt-3 text-sm text-slate-600">
+                Limited slots every week for new patients. Includes oral health
+                assessment and personalized treatment planning.
+              </p>
+              <div className="mt-6">
+                <CTAButton label="Claim offer" href="/contact" />
+              </div>
+            </div>
+            <div className="rounded-3xl border border-[color:var(--brand-mist)] bg-white p-8 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900">
+                Flexible insurance support
+              </h3>
+              <p className="mt-3 text-sm text-slate-600">
+                We help with insurance documentation and provide transparent cost
+                estimates before you start treatment.
+              </p>
+              <a
+                href={clinic.googleBusinessProfileUrl}
+                className="mt-5 inline-flex text-sm font-semibold text-[color:var(--brand-blue)] hover:text-[color:var(--brand-blue-strong)]"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View Google profile →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[color:var(--brand-mist)]/70">
+        <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+          <SectionHeading
+            eyebrow="Google reviews"
+            title={`Rated ${clinic.reviewRating} stars by ${clinic.reviewCount}+ patients`}
+            description="Read what patients share about their Dental Stories experience."
+          />
+          <div className="mt-8 rounded-3xl border border-[color:var(--brand-mist)] bg-white p-8 shadow-sm">
+            <p className="text-sm text-slate-600">
+              We feature verified reviews from Google. Click below to view the
+              latest feedback and directions.
+            </p>
+            <a
+              href={clinic.googleBusinessProfileUrl}
+              className="mt-4 inline-flex text-sm font-semibold text-[color:var(--brand-blue)] hover:text-[color:var(--brand-blue-strong)]"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Google Reviews →
+            </a>
+          </div>
+        </div>
+      </section>
       <section className="bg-white">
         <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
           <SectionHeading
@@ -379,6 +494,65 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+          <SectionHeading
+            eyebrow="Before & after"
+            title="See the difference with real transformations"
+            description="A peek at patient results achieved with careful, personalized care."
+          />
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="rounded-[32px] border border-[color:var(--brand-mist)] bg-white p-6 shadow-sm">
+              <Image
+                src="/images/before-after.jpeg"
+                alt="Before and after dental treatment"
+                width={900}
+                height={900}
+                className="h-full w-full rounded-[24px] object-cover"
+              />
+            </div>
+            <div className="rounded-[32px] border border-[color:var(--brand-mist)] bg-[color:var(--brand-mist)]/40 p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900">
+                Smile makeovers that feel natural
+              </h3>
+              <p className="mt-3 text-sm text-slate-600">
+                We focus on healthy, confident smiles with minimally invasive
+                techniques and clear aftercare guidance.
+              </p>
+              <ul className="mt-5 space-y-2 text-sm text-slate-600">
+                <li>Personalized smile design and shade matching.</li>
+                <li>Gentle, step-by-step treatment planning.</li>
+                <li>Follow-ups to maintain results long term.</li>
+              </ul>
+              <div className="mt-6">
+                <CTAButton label="View treatments" href="/services" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {clinic.tour360Url ? (
+        <section className="bg-[color:var(--brand-mist)]/50">
+          <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+            <SectionHeading
+              eyebrow="360° Tour"
+              title="Explore the clinic in 360°"
+              description="Walk through our spaces and get a feel for the environment before you visit."
+            />
+            <div className="mt-8 overflow-hidden rounded-[32px] border border-[color:var(--brand-mist)] bg-white shadow-sm">
+              <iframe
+                title="Dental Stories 360 tour"
+                src={clinic.tour360Url}
+                className="h-[520px] w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
         <SectionHeading
           eyebrow="Clinic highlights"
@@ -464,6 +638,31 @@ export default function HomePage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+          <SectionHeading
+            eyebrow="Voice search"
+            title="Ask us the way you speak"
+            description="These are the questions patients often ask using voice search."
+          />
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {[
+              "Best dentist near Dhole Patil Road?",
+              "How much does teeth whitening cost in Pune?",
+              "Is root canal treatment painful?",
+              "Do you offer same-day dental appointments?",
+            ].map((question) => (
+              <div
+                key={question}
+                className="rounded-2xl border border-[color:var(--brand-mist)] bg-white px-5 py-4 text-sm text-slate-600"
+              >
+                {question}
+              </div>
+            ))}
           </div>
         </div>
       </section>

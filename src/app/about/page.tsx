@@ -120,6 +120,28 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {clinic.doctorIntroVideoUrl ? (
+        <section className="bg-white">
+          <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+            <SectionHeading
+              eyebrow="Video introduction"
+              title="Meet Dr. Nehal Khandelwal"
+              description="A short introduction to our care philosophy and approach."
+            />
+            <div className="mt-8 overflow-hidden rounded-[32px] border border-[color:var(--brand-mist)] bg-white shadow-sm">
+              <video
+                className="h-full w-full object-cover"
+                controls
+                preload="metadata"
+                playsInline
+                aria-label="Doctor introduction video"
+                src={clinic.doctorIntroVideoUrl}
+              />
+            </div>
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }

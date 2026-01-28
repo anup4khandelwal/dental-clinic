@@ -2,6 +2,7 @@ import { clinic } from "@/config/clinic";
 import { services } from "@/lib/services";
 import { CTAButton } from "@/components/CTAButton";
 import { SectionHeading } from "@/components/SectionHeading";
+import { ServiceIcon } from "@/components/ServiceIcon";
 
 export const metadata = {
   title: "Services",
@@ -53,13 +54,18 @@ export default function ServicesPage() {
               id={service.slug}
               className="rounded-3xl border border-[color:var(--brand-mist)] bg-white p-8 shadow-sm"
             >
-              <h2 className="text-2xl font-semibold text-slate-900">
-                {service.title}
-              </h2>
+              <div className="flex items-center gap-4">
+                <ServiceIcon iconKey={service.icon} className="h-12 w-12 p-3" />
+                <h2 className="text-2xl font-semibold text-slate-900">
+                  {service.title}
+                </h2>
+              </div>
               <p className="mt-3 text-sm text-slate-600">{service.description}</p>
               <div className="mt-4 text-sm text-slate-500">
-                Speak with our care team to understand recommended timelines,
-                comfort options, and aftercare guidance.
+                Procedure: {service.procedure}
+              </div>
+              <div className="mt-4 inline-flex text-sm font-semibold text-[color:var(--brand-blue)]">
+                <a href={`/services/${service.slug}`}>View details →</a>
               </div>
             </div>
           ))}

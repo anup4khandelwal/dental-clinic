@@ -65,6 +65,25 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <section className="bg-[color:var(--brand-mist)]/50">
+        <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+          <SectionHeading
+            eyebrow="Book online"
+            title="Schedule your appointment instantly"
+            description="Use our embedded booking widget to pick a time that works for you."
+          />
+          <div className="mt-8 overflow-hidden rounded-[32px] border border-[color:var(--brand-mist)] bg-white shadow-sm">
+            <iframe
+              title="Dental Stories appointment booking"
+              src={clinic.bookingEmbedUrl ?? clinic.bookingUrl}
+              className="h-[720px] w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -17,9 +17,19 @@ export const clinic = {
   hours: "Mon–Sat: 10am–7pm",
   appointmentUrl: "/contact",
   bookingUrl: "https://cal.com/",
+  bookingEmbedUrl: "https://cal.com/your-clinic?embed=1",
   emergencyNote:
     "Same-day emergency slots available. Call or WhatsApp us for urgent care.",
   payments: ["Cash", "UPI", "Cards", "EMI available on select treatments"],
+  reviewRating: 4.9,
+  reviewCount: 128,
+  googleBusinessProfileUrl: "https://g.page/",
+  doctorIntroVideoUrl: "",
+  tour360Url: "",
+  chatWidget: {
+    provider: "tawk",
+    tawkToId: "",
+  },
   social: {
     instagram: "https://instagram.com/",
     facebook: "https://facebook.com/",

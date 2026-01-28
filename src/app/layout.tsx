@@ -7,6 +7,8 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { TopBar } from "@/components/TopBar";
+import { ChatWidget } from "@/components/ChatWidget";
+import { PwaRegister } from "@/components/PwaRegister";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -31,6 +33,7 @@ export const metadata: Metadata = {
     icon: "/brand/logo.svg",
     apple: "/brand/logo.svg",
   },
+  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({
@@ -49,6 +52,8 @@ export default function RootLayout({
         <Footer />
         <CallNowButton />
         <WhatsAppButton />
+        <ChatWidget />
+        <PwaRegister />
       </body>
     </html>
   );

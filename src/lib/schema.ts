@@ -1,7 +1,7 @@
 import { clinic, site } from "@/config/clinic";
 
 export function localBusinessSchema() {
-  return {
+  const base: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Dentist",
     name: clinic.name,
@@ -23,6 +23,16 @@ export function localBusinessSchema() {
     openingHours: clinic.hours,
     image: `${site.url}/brand/og-image.jpg`,
   };
+
+  if (clinic.reviewRating && clinic.reviewCount) {
+    base.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: clinic.reviewRating,
+      reviewCount: clinic.reviewCount,
+    };
+  }
+
+  return base;
 }
 
 export function faqSchema(items: Array<{ question: string; answer: string }>) {
