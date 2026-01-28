@@ -16,8 +16,8 @@ export const clinic = {
   },
   hours: "Mon–Sat: 10am–7pm",
   appointmentUrl: "/contact",
-  bookingUrl: "https://cal.com/",
-  bookingEmbedUrl: "https://cal.com/your-clinic?embed=1",
+  bookingUrl: "",
+  bookingEmbedUrl: "",
   emergencyNote:
     "Same-day emergency slots available. Call or WhatsApp us for urgent care.",
   payments: ["Cash", "UPI", "Cards", "EMI available on select treatments"],
