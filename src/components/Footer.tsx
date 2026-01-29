@@ -36,6 +36,16 @@ export function Footer() {
             {clinic.tagline}. Gentle, modern dentistry focused on comfort and long-term
             oral health.
           </p>
+          <div className="flex items-center gap-4 text-sm font-semibold">
+            <a
+              href={clinic.social.instagram}
+              className="text-[color:var(--brand-blue)] hover:text-[color:var(--brand-blue-strong)]"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
+          </div>
           <div className="space-y-1 text-sm text-slate-600">
             <p>{clinic.addressLine1}</p>
             <p>{clinic.addressLine2}</p>

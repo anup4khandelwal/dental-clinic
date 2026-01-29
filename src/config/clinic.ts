@@ -31,7 +31,7 @@ export const clinic = {
     tawkToId: "",
   },
   social: {
-    instagram: "https://instagram.com/",
+    instagram: "https://instagram.com/dentalstoriespune",
     facebook: "https://facebook.com/",
   },
   mapsEmbedUrl:
@@ -39,7 +39,7 @@ export const clinic = {
 };
 
 export const site = {
-  url: "https://dentalstories.com",
+  url: "https://dentalstoriespune.com",
   title: "Dental Stories | Modern Dental Clinic in Pune",
   description:
     "Dental Stories is a modern dental clinic in Pune led by Dr. Nehal Khandelwal. Advanced care, gentle approach, and a smile-first philosophy.",
