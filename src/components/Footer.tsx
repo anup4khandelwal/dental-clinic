@@ -12,7 +12,6 @@ const navItems = [
   { href: "/guides", label: "Downloads" },
   { href: "/myths-facts", label: "Myths & Facts" },
   { href: "/locations/pune", label: "Dentist in Pune" },
-  { href: "/symptom-checker", label: "Symptom Checker" },
   { href: "/portal", label: "Patient Portal" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
